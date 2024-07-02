@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.food.mapper.BaseFoodMapper">
+    <resultMap id="BaseResultMap" type="com.food.entity.BaseFood">
+        <!--@mbg.generated-->
+        <!--@Table base_food-->
+        <id column="id" property="id"/>
+        <result column="food_name" property="foodName"/>
+        <result column="foodstuffs" property="foodstuffs"/>
+        <result column="sub_class" property="subClass"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        food_name,
+        foodstuffs,
+        sub_class,
+        create_time,
+        update_time
+    </sql>
+
+    <insert id="insert" parameterType="com.food.entity.BaseFood">
+        <!--@mbg.generated-->
+        insert into base_food (id, food_name, foodstuffs, sub_class, create_time, update_time)
+        values (#{id}, #{foodName}, #{foodstuffs}, #{subClass}, #{createTime}, #{updateTime})
+    </insert>
+
+    <select id="existCurrentObj" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        base_food
+        WHERE food_name = #{foodName}
+    </select>
+
+    <update id="updateById">
+        update base_food
+        <set>
+            <if test="foodName != null">
+                food_name = #{foodName},
+            </if>
+            <if test="foodstuffs != null">
+                foodstuffs = #{foodstuffs},
+            </if>
+            <if test="subClass != null">
+                sub_class = #{subClass},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

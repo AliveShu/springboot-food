@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.food.mapper.FoodMapper">
+    <resultMap id="BaseResultMap" type="com.food.entity.Food">
+        <!--@mbg.generated-->
+        <!--@Table com_food-->
+        <id column="id" property="id"/>
+        <result column="chinese_name" property="chineseName"/>
+        <result column="primary_classification" property="primaryClassification"/>
+        <result column="secondary_classification" property="secondaryClassification"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, chinese_name, primary_classification, secondary_classification
+    </sql>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.food.entity.Food"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into com_food (id, chinese_name, primary_classification, secondary_classification)
+        values
+            (#{id}, #{chineseName}, #{primaryClassification}, #{secondaryClassification})
+
+    </insert>
+
+    <select id="findByFoodUnique" resultMap="BaseResultMap">
+        select
+            <include refid="Base_Column_List"/>
+        from com_food
+        where
+            chinese_name = #{chineseName}
+        <if test="primaryClassification != null">
+           and primary_classification = #{primaryClassification}
+        </if>
+        <if test="secondaryClassification != null">
+            and secondary_classification = #{secondaryClassification}
+        </if>
+    </select>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.food.entity.Food">
+        <!--@mbg.generated-->
+        update com_food
+        <set>
+            <if test="chineseName != null">
+                chinese_name = #{chineseName},
+            </if>
+            <if test="primaryClassification != null">
+                primary_classification = #{primaryClassification},
+            </if>
+            <if test="secondaryClassification != null">
+                secondary_classification = #{secondaryClassification},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

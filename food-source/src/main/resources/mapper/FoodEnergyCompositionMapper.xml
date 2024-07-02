@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.food.mapper.FoodEnergyCompositionMapper">
+    <resultMap id="BaseResultMap" type="com.food.entity.FoodEnergyComposition">
+        <!--@Table com_food_energy_composition-->
+        <id column="id" property="id"/>
+        <result column="food_id" property="foodId"/>
+        <result column="edible" property="edible"/>
+        <result column="edible_unit" property="edibleUnit"/>
+        <result column="moisture_content" property="moistureContent"/>
+        <result column="moisture_content_unit" property="moistureContentUnit"/>
+        <result column="energy" property="energy"/>
+        <result column="energy_unit" property="energyUnit"/>
+        <result column="protein" property="protein"/>
+        <result column="protein_unit" property="proteinUnit"/>
+        <result column="fat" property="fat"/>
+        <result column="fat_unit" property="fatUnit"/>
+        <result column="cholesterol" property="cholesterol"/>
+        <result column="cholesterol_unit" property="cholesterolUnit"/>
+        <result column="ash_content" property="ashContent"/>
+        <result column="ash_content_unit" property="ashContentUnit"/>
+        <result column="carbohydrate" property="carbohydrate"/>
+        <result column="carbohydrate_unit" property="carbohydrateUnit"/>
+        <result column="dietary_fiber" property="dietaryFiber"/>
+        <result column="dietary_fiber_unit" property="dietaryFiberUnit"/>
+        <result column="carotene" property="carotene"/>
+        <result column="carotene_unit" property="caroteneUnit"/>
+        <result column="vitamin_a" property="vitaminA"/>
+        <result column="vitamin_a_unit" property="vitaminAUnit"/>
+        <result column="a_te" property="aTe"/>
+        <result column="a_te_unit" property="aTeUnit"/>
+        <result column="thiamine" property="thiamine"/>
+        <result column="thiamine_unit" property="thiamineUnit"/>
+        <result column="riboflavin" property="riboflavin"/>
+        <result column="riboflavin_unit" property="riboflavinUnit"/>
+        <result column="nicotinic_acid" property="nicotinicAcid"/>
+        <result column="nicotinic_acid_unit" property="nicotinicAcidUnit"/>
+        <result column="vitamin_c" property="vitaminC"/>
+        <result column="vitamin_c_unit" property="vitaminCUnit"/>
+        <result column="calcium" property="calcium"/>
+        <result column="calcium_unit" property="calciumUnit"/>
+        <result column="phosphorus" property="phosphorus"/>
+        <result column="phosphorus_unit" property="phosphorusUnit"/>
+        <result column="potassium" property="potassium"/>
+        <result column="potassium_unit" property="potassiumUnit"/>
+        <result column="sodium" property="sodium"/>
+        <result column="sodium_unit" property="sodiumUnit"/>
+        <result column="magnesium" property="magnesium"/>
+        <result column="magnesium_unit" property="magnesiumUnit"/>
+        <result column="iron" property="iron"/>
+        <result column="iron_unit" property="ironUnit"/>
+        <result column="zinc" property="zinc"/>
+        <result column="zinc_unit" property="zincUnit"/>
+        <result column="selenium" property="selenium"/>
+        <result column="selenium_unit" property="seleniumUnit"/>
+        <result column="copper" property="copper"/>
+        <result column="copper_unit" property="copperUnit"/>
+        <result column="manganese" property="manganese"/>
+        <result column="manganese_unit" property="manganeseUnit"/>
+        <result column="iodine" property="iodine"/>
+        <result column="iodine_unit" property="iodineUnit"/>
+        <result column="saturated_fatty_acids" property="saturatedFattyAcids"/>
+        <result column="saturated_fatty_acids_unit" property="saturatedFattyAcidsUnit"/>
+        <result column="monounsaturated_fatty_acids" property="monounsaturatedFattyAcids"/>
+        <result column="monounsaturated_fatty_acids_unit" property="monounsaturatedFattyAcidsUnit"/>
+        <result column="polyunsaturated_fatty_acids" property="polyunsaturatedFattyAcids"/>
+        <result column="polyunsaturated_fatty_acids_unit" property="polyunsaturatedFattyAcidsUnit"/>
+        <result column="total_fatty_acids" property="totalFattyAcids"/>
+        <result column="total_fatty_acids_unit" property="totalFattyAcidsUnit"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, food_id, edible, edible_unit, moisture_content, moisture_content_unit, energy,
+    energy_unit, protein, protein_unit, fat, fat_unit, cholesterol, cholesterol_unit, 
+    ash_content, ash_content_unit, carbohydrate, carbohydrate_unit, dietary_fiber, dietary_fiber_unit, 
+    carotene, carotene_unit, vitamin_a, vitamin_a_unit, a_te, a_te_unit, thiamine, thiamine_unit,
+    riboflavin, riboflavin_unit, nicotinic_acid, nicotinic_acid_unit, vitamin_c, vitamin_c_unit, 
+    calcium, calcium_unit, phosphorus, phosphorus_unit, potassium, potassium_unit, sodium, 
+    sodium_unit, magnesium, magnesium_unit, iron, iron_unit, zinc, zinc_unit, selenium, 
+    selenium_unit, copper, copper_unit, manganese, manganese_unit, iodine, iodine_unit, 
+    saturated_fatty_acids, saturated_fatty_acids_unit, monounsaturated_fatty_acids, monounsaturated_fatty_acids_unit, 
+    polyunsaturated_fatty_acids, polyunsaturated_fatty_acids_unit, total_fatty_acids, 
+    total_fatty_acids_unit
+    </sql>
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.food.entity.FoodEnergyComposition" useGeneratedKeys="true">
+        insert into com_food_energy_composition (id, food_id, edible, edible_unit, moisture_content, moisture_content_unit,
+                                                 energy, energy_unit, protein, protein_unit, fat, fat_unit, cholesterol,
+                                                 cholesterol_unit, ash_content, ash_content_unit, carbohydrate,
+                                                 carbohydrate_unit,
+                                                 dietary_fiber, dietary_fiber_unit, carotene, carotene_unit, vitamin_a,
+                                                 vitamin_a_unit, a_te, a_te_unit, thiamine, thiamine_unit, riboflavin,
+                                                 riboflavin_unit, nicotinic_acid, nicotinic_acid_unit, vitamin_c,
+                                                 vitamin_c_unit,
+                                                 calcium, calcium_unit, phosphorus, phosphorus_unit, potassium,
+                                                 potassium_unit,
+                                                 sodium, sodium_unit, magnesium, magnesium_unit, iron, iron_unit,
+                                                 zinc, zinc_unit, selenium, selenium_unit, copper, copper_unit,
+                                                 manganese,
+                                                 manganese_unit, iodine, iodine_unit, saturated_fatty_acids,
+                                                 saturated_fatty_acids_unit,
+                                                 monounsaturated_fatty_acids, monounsaturated_fatty_acids_unit,
+                                                 polyunsaturated_fatty_acids,
+                                                 polyunsaturated_fatty_acids_unit, total_fatty_acids,
+                                                 total_fatty_acids_unit)
+        values
+                (#{id}, #{foodId}, #{edible}, #{edibleUnit}, #{moistureContent}, #{moistureContentUnit},
+                #{energy}, #{energyUnit}, #{protein}, #{proteinUnit}, #{fat}, #{fatUnit}, #{cholesterol},
+                #{cholesterolUnit}, #{ashContent}, #{ashContentUnit}, #{carbohydrate}, #{carbohydrateUnit},
+                #{dietaryFiber}, #{dietaryFiberUnit}, #{carotene}, #{caroteneUnit}, #{vitaminA},
+                #{vitaminAUnit}, #{aTe}, #{aTeUnit}, #{thiamine}, #{thiamineUnit}, #{riboflavin},
+                #{riboflavinUnit}, #{nicotinicAcid}, #{nicotinicAcidUnit}, #{vitaminC}, #{vitaminCUnit},
+                #{calcium}, #{calciumUnit}, #{phosphorus}, #{phosphorusUnit}, #{potassium}, #{potassiumUnit},
+                #{sodium}, #{sodiumUnit}, #{magnesium}, #{magnesiumUnit}, #{iron}, #{ironUnit},
+                #{zinc}, #{zincUnit}, #{selenium}, #{seleniumUnit}, #{copper}, #{copperUnit}, #{manganese},
+                #{manganeseUnit}, #{iodine}, #{iodineUnit}, #{saturatedFattyAcids}, #{saturatedFattyAcidsUnit},
+                #{monounsaturatedFattyAcids}, #{monounsaturatedFattyAcidsUnit}, #{polyunsaturatedFattyAcids},
+                #{polyunsaturatedFattyAcidsUnit}, #{totalFattyAcids}, #{totalFattyAcidsUnit})
+
+    </insert>
+
+    <update id="updateByFoodId" parameterType="com.food.entity.FoodEnergyComposition">
+        update com_food_energy_composition
+        <set>
+            <if test="edible != null">
+                edible = #{edible},
+            </if>
+            <if test="edibleUnit != null">
+                edible_unit = #{edibleUnit},
+            </if>
+            <if test="moistureContent != null">
+                moisture_content = #{moistureContent},
+            </if>
+            <if test="moistureContentUnit != null">
+                moisture_content_unit = #{moistureContentUnit},
+            </if>
+            <if test="energy != null">
+                energy = #{energy},
+            </if>
+            <if test="energyUnit != null">
+                energy_unit = #{energyUnit},
+            </if>
+            <if test="protein != null">
+                protein = #{protein},
+            </if>
+            <if test="proteinUnit != null">
+                protein_unit = #{proteinUnit},
+            </if>
+            <if test="fat != null">
+                fat = #{fat},
+            </if>
+            <if test="fatUnit != null">
+                fat_unit = #{fatUnit},
+            </if>
+            <if test="cholesterol != null">
+                cholesterol = #{cholesterol},
+            </if>
+            <if test="cholesterolUnit != null">
+                cholesterol_unit = #{cholesterolUnit},
+            </if>
+            <if test="ashContent != null">
+                ash_content = #{ashContent},
+            </if>
+            <if test="ashContentUnit != null">
+                ash_content_unit = #{ashContentUnit},
+            </if>
+            <if test="carbohydrate != null">
+                carbohydrate = #{carbohydrate},
+            </if>
+            <if test="carbohydrateUnit != null">
+                carbohydrate_unit = #{carbohydrateUnit},
+            </if>
+            <if test="dietaryFiber != null">
+                dietary_fiber = #{dietaryFiber},
+            </if>
+            <if test="dietaryFiberUnit != null">
+                dietary_fiber_unit = #{dietaryFiberUnit},
+            </if>
+            <if test="carotene != null">
+                carotene = #{carotene},
+            </if>
+            <if test="caroteneUnit != null">
+                carotene_unit = #{caroteneUnit},
+            </if>
+            <if test="vitaminA != null">
+                vitamin_a = #{vitaminA},
+            </if>
+            <if test="vitaminAUnit != null">
+                vitamin_a_unit = #{vitaminAUnit},
+            </if>
+            <if test="aTe != null">
+                a_te = #{aTe},
+            </if>
+            <if test="aTeUnit != null">
+                a_te_unit = #{aTeUnit},
+            </if>
+            <if test="thiamine != null">
+                thiamine = #{thiamine},
+            </if>
+            <if test="thiamineUnit != null">
+                thiamine_unit = #{thiamineUnit},
+            </if>
+            <if test="riboflavin != null">
+                riboflavin = #{riboflavin},
+            </if>
+            <if test="riboflavinUnit != null">
+                riboflavin_unit = #{riboflavinUnit},
+            </if>
+            <if test="nicotinicAcid != null">
+                nicotinic_acid = #{nicotinicAcid},
+            </if>
+            <if test="nicotinicAcidUnit != null">
+                nicotinic_acid_unit = #{nicotinicAcidUnit},
+            </if>
+            <if test="vitaminC != null">
+                vitamin_c = #{vitaminC},
+            </if>
+            <if test="vitaminCUnit != null">
+                vitamin_c_unit = #{vitaminCUnit},
+            </if>
+            <if test="calcium != null">
+                calcium = #{calcium},
+            </if>
+            <if test="calciumUnit != null">
+                calcium_unit = #{calciumUnit},
+            </if>
+            <if test="phosphorus != null">
+                phosphorus = #{phosphorus},
+            </if>
+            <if test="phosphorusUnit != null">
+                phosphorus_unit = #{phosphorusUnit},
+            </if>
+            <if test="potassium != null">
+                potassium = #{potassium},
+            </if>
+            <if test="potassiumUnit != null">
+                potassium_unit = #{potassiumUnit},
+            </if>
+            <if test="sodium != null">
+                sodium = #{sodium},
+            </if>
+            <if test="sodiumUnit != null">
+                sodium_unit = #{sodiumUnit},
+            </if>
+            <if test="magnesium != null">
+                magnesium = #{magnesium},
+            </if>
+            <if test="magnesiumUnit != null">
+                magnesium_unit = #{magnesiumUnit},
+            </if>
+            <if test="iron != null">
+                iron = #{iron},
+            </if>
+            <if test="ironUnit != null">
+                iron_unit = #{ironUnit},
+            </if>
+            <if test="zinc != null">
+                zinc = #{zinc},
+            </if>
+            <if test="zincUnit != null">
+                zinc_unit = #{zincUnit},
+            </if>
+            <if test="selenium != null">
+                selenium = #{selenium},
+            </if>
+            <if test="seleniumUnit != null">
+                selenium_unit = #{seleniumUnit},
+            </if>
+            <if test="copper != null">
+                copper = #{copper},
+            </if>
+            <if test="copperUnit != null">
+                copper_unit = #{copperUnit},
+            </if>
+            <if test="manganese != null">
+                manganese = #{manganese},
+            </if>
+            <if test="manganeseUnit != null">
+                manganese_unit = #{manganeseUnit},
+            </if>
+            <if test="iodine != null">
+                iodine = #{iodine},
+            </if>
+            <if test="iodineUnit != null">
+                iodine_unit = #{iodineUnit},
+            </if>
+            <if test="saturatedFattyAcids != null">
+                saturated_fatty_acids = #{saturatedFattyAcids},
+            </if>
+            <if test="saturatedFattyAcidsUnit != null">
+                saturated_fatty_acids_unit = #{saturatedFattyAcidsUnit},
+            </if>
+            <if test="monounsaturatedFattyAcids != null">
+                monounsaturated_fatty_acids = #{monounsaturatedFattyAcids},
+            </if>
+            <if test="monounsaturatedFattyAcidsUnit != null">
+                monounsaturated_fatty_acids_unit = #{monounsaturatedFattyAcidsUnit},
+            </if>
+            <if test="polyunsaturatedFattyAcids != null">
+                polyunsaturated_fatty_acids = #{polyunsaturatedFattyAcids},
+            </if>
+            <if test="polyunsaturatedFattyAcidsUnit != null">
+                polyunsaturated_fatty_acids_unit = #{polyunsaturatedFattyAcidsUnit},
+            </if>
+            <if test="totalFattyAcids != null">
+                total_fatty_acids = #{totalFattyAcids},
+            </if>
+            <if test="totalFattyAcidsUnit != null">
+                total_fatty_acids_unit = #{totalFattyAcidsUnit},
+            </if>
+        </set>
+        where food_id = #{foodId}
+    </update>
+</mapper>

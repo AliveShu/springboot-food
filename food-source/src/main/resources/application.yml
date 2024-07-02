@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+chrome:
+  driver: D:\Program Files\chromedriver\chromedriver.exe
+
+food:
+  crawling:
+    cron:
+      0 0 3 ? * L
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud_base?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+mybatis:
+#  type-aliases-package: com.mybatis.mysql.mapper
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - classpath:mapper/*.xml
+
+
+logging:
+  level:
+    root: info
+    tomcat : warn
+    com.food.* : info
+  file:
+    name: logs/food.log
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+  config: classpath:log4j2-spring.xml

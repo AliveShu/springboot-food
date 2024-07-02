@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.food.mapper.BaseFoodNutritionMapper">
+    <resultMap id="BaseResultMap" type="com.food.entity.BaseFoodNutrition">
+        <!--@mbg.generated-->
+        <!--@Table base_food_nutrition-->
+        <id column="id" property="id"/>
+        <result column="food_id" property="foodId"/>
+        <result column="nutrition_name" property="nutritionName"/>
+        <result column="nutrition_content" property="nutritionContent"/>
+        <result column="peer_ranking" property="peerRanking"/>
+        <result column="peer_mean" property="peerMean"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        food_id,
+        nutrition_name,
+        nutrition_content,
+        peer_ranking,
+        peer_mean,
+        create_time,
+        update_time
+    </sql>
+
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into base_food_nutrition
+            (id, food_id, nutrition_name, nutrition_content, peer_ranking, peer_mean, create_time, update_time)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id}, #{item.foodId}, #{item.nutritionName}, #{item.nutritionContent}, #{item.peerRanking},
+            #{item.peerMean}, #{item.createTime}, #{item.updateTime})
+        </foreach>
+    </insert>
+
+    <update id="updateByPrimaryKey">
+        <!--@mbg.generated-->
+        update base_food_nutrition
+        <set>
+            <if test="nutritionContent != null">
+                nutrition_content = #{nutritionContent},
+            </if>
+            <if test="peerRanking != null">
+                peer_ranking = #{peerRanking},
+            </if>
+            <if test="peerMean != null">
+                peer_mean = #{peerMean},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where food_id = #{foodId}
+            AND nutrition_name = #{nutritionName}
+    </update>
+
+</mapper>
